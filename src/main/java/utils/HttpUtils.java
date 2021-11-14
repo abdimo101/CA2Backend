@@ -1,7 +1,6 @@
 package utils;
 import com.google.gson.Gson;
 import dtos.*;
-import org.glassfish.jersey.internal.guava.Ticker;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -88,6 +87,12 @@ public class HttpUtils {
         String cat = HttpUtils.fetchData("https://catfact.ninja/fact");
         CatFactsDTO catFactsDTO = gson.fromJson(cat, CatFactsDTO.class);
         return catFactsDTO;
+    }
+
+    public static AdviceDTO fetchAdvice() throws IOException {
+        String advice = HttpUtils.fetchData("https://api.adviceslip.com/advice");
+        AdviceDTO adviceDTO= gson.fromJson(advice, AdviceDTO.class);
+        return adviceDTO;
     }
 
     public static String fetchData(String _url) throws MalformedURLException, IOException{

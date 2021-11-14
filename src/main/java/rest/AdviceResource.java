@@ -28,7 +28,7 @@ public class AdviceResource {
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed("admin")
     public String getAdvice() throws IOException, ExecutionException, InterruptedException {
-        String result = gson.toJson(HttpUtils.fetchData("https://api.adviceslip.com/advice"));
+        String result = gson.toJson(HttpUtils.fetchAdvice());
         return result;
     }
 
