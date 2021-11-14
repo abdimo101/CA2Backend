@@ -119,9 +119,11 @@ public class CryptoEndpointTest {
 
 
     @Test
-    public void testCryptoAllNoAuth() {
+    public void testCryptoAll() {
+        login("user", "test");
         given()
                 .contentType("application/json")
+                .header("x-access-token", securityToken)
                 .when()
                 .get("/crypto/all").then()
                 .statusCode(200)
