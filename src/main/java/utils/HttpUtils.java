@@ -89,9 +89,9 @@ public class HttpUtils {
         return catFactsDTO;
     }
 
-    public static AdvicesDTO fetchAdvice() throws IOException {
+    public static AdviceDTO fetchAdvice() throws IOException {
         String advice = HttpUtils.fetchData("https://api.adviceslip.com/advice");
-        AdvicesDTO adviceDTO= gson.fromJson(advice, AdvicesDTO.class);
+        AdviceDTO adviceDTO= gson.fromJson(advice, AdviceDTO.class);
         return adviceDTO;
     }
 
