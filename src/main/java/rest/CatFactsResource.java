@@ -14,8 +14,8 @@ import javax.ws.rs.core.UriInfo;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-@Path("advice")
-public class AdviceResource {
+@Path("catfacts")
+public class CatFactsResource {
     @Context
     private UriInfo context;
 
@@ -26,9 +26,9 @@ public class AdviceResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @RolesAllowed("admin")
-    public String getAdvice() throws IOException, ExecutionException, InterruptedException {
-        String result = gson.toJson(HttpUtils.fetchData("https://api.adviceslip.com/advice"));
+    @RolesAllowed("user")
+    public String getCatFacts() throws IOException, ExecutionException, InterruptedException {
+        String result = gson.toJson(HttpUtils.fetchData("https://catfact.ninja/fact"));
         return result;
     }
 
