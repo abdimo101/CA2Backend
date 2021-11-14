@@ -28,7 +28,7 @@ public class CatFactsResource {
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed("user")
     public String getCatFacts() throws IOException, ExecutionException, InterruptedException {
-        String result = gson.toJson(HttpUtils.fetchData("https://catfact.ninja/fact"));
+        String result = gson.toJson(HttpUtils.fetchCatFacts());
         return result;
     }
 
